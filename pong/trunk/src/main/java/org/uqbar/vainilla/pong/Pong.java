@@ -11,6 +11,7 @@ import org.uqbar.vainilla.pong.pongscene.Raqueta;
 import org.uqbar.vainilla.pong.pongscene.strategies.RaquetaComputerStrategy;
 import org.uqbar.vainilla.pong.pongscene.strategies.RaquetaPlayerStrategy;
 
+import ar.edu.unq.games.vainillautils.Tuning;
 import ar.edu.unq.games.vainillautils.Vector2D;
 
 import com.uqbar.vainilla.DesktopGameLauncher;
@@ -19,15 +20,21 @@ import com.uqbar.vainilla.GameScene;
 
 public class Pong extends Game {
 
-	static public Dimension dimension = new Dimension(800, 600);
-	static Color colorPlayer = Color.BLUE;
-	static Color colorComputer = Color.BLACK;
-	static double velocidadRaquetaPlayer = 0.8;
-	static double velocidadRaquetaComputer = 0.4;
+	private Dimension dimension;
+	private Color colorPlayer;
+	private Color colorComputer;
+	private double velocidadRaquetaPlayer;
+	private double velocidadRaquetaComputer;
 			
 	
 	@Override
 	protected void initializeResources() {
+		Tuning.load();
+		dimension = new Dimension(Tuning.getInteger("dimension.width", 800), Tuning.getInteger("dimension.height", 600));
+		colorPlayer = Tuning.getColor("player.color", Color.BLUE);
+		colorComputer = Tuning.getColor("computer.color", Color.BLACK);
+		velocidadRaquetaPlayer = Tuning.getDouble("player.speed", 0.8);
+		velocidadRaquetaComputer = Tuning.getDouble("computer.speed", 0.4);
 		
 	}
 
@@ -40,7 +47,7 @@ public class Pong extends Game {
 
 	public GameScene buildPongScene() {
 		PongScene pongScene = new PongScene();
-		pongScene.setPelota(new Pelota((int)dimension.getWidth()/22, dimension.getWidth()/2 , dimension.getHeight()/2, new Vector2D(0, 1), 0.5));
+		pongScene.setPelota(new Pelota((int)dimension.getWidth()/Tuning.getInteger("pelota.radio"), dimension.getWidth()/2 , dimension.getHeight()/2, new Vector2D(0, 1), 0.5));
 		pongScene.setMarcadorPlayer(new Marcador(dimension.getWidth()/4, dimension.getHeight()/2, colorPlayer));
 		pongScene.setMarcadorComputer(new Marcador(3*dimension.getWidth()/4, dimension.getHeight()/2, colorComputer));
 		
