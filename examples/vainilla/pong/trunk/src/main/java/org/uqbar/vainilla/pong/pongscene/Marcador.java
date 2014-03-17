@@ -38,6 +38,10 @@ public class Marcador extends GameComponent<PongScene> {
 	public boolean isBetter(Marcador other) {
 		return this.value > other.value;
 	}
+
+	public boolean finJuego(PongScene scene) {
+		return this.value >= scene.getMaxScore();
+	}
 	
 
 }
