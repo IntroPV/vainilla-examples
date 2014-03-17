@@ -19,7 +19,7 @@ import com.uqbar.vainilla.GameScene;
 
 public class Pong extends Game {
 
-	static public Dimension dimension = new Dimension(800, 600);
+	static public Dimension dimension = new Dimension(200, 300);
 	static Color colorPlayer = Color.BLUE;
 	static Color colorComputer = Color.BLACK;
 	static double velocidadRaquetaPlayer = 0.8;
@@ -40,7 +40,7 @@ public class Pong extends Game {
 
 	public GameScene buildPongScene() {
 		PongScene pongScene = new PongScene();
-		pongScene.setPelota(new Pelota(30, dimension.getWidth()/2 , dimension.getHeight()/2, new Vector2D(0, 1), 0.5));
+		pongScene.setPelota(new Pelota((int)dimension.getWidth()/22, dimension.getWidth()/2 , dimension.getHeight()/2, new Vector2D(0, 1), 0.5));
 		pongScene.setMarcadorPlayer(new Marcador(dimension.getWidth()/4, dimension.getHeight()/2, colorPlayer));
 		pongScene.setMarcadorComputer(new Marcador(3*dimension.getWidth()/4, dimension.getHeight()/2, colorComputer));
 		

@@ -34,10 +34,10 @@ public class RaquetaComputerStrategy implements RaquetaStrategy {
 
 	private void irALaCaida(Raqueta raqueta, PongScene scene) {
 		double xDeCaida = calcularXCaida(raqueta, scene.getPelota());
-		if (xDeCaida < raqueta.getX()) {
+		if (xDeCaida < raqueta.getX() + raqueta.getAppearance().getWidth()/2) {
 			raqueta.izquierda();
 		}
-		if (xDeCaida > raqueta.getX() + raqueta.getAppearance().getWidth()) {
+		if (xDeCaida > raqueta.getX() + raqueta.getAppearance().getWidth()/2) {
 			raqueta.derecha();
 		}
 	}
