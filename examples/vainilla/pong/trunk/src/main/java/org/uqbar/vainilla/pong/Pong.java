@@ -19,7 +19,7 @@ import com.uqbar.vainilla.GameScene;
 
 public class Pong extends Game {
 
-	static public Dimension dimension = new Dimension(200, 300);
+	static public Dimension dimension = new Dimension(800, 600);
 	static Color colorPlayer = Color.BLUE;
 	static Color colorComputer = Color.BLACK;
 	static double velocidadRaquetaPlayer = 0.8;
