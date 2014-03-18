@@ -32,12 +32,12 @@ public class Raqueta extends GameComponent<PongScene> {
 		this.strategy = strategy;
 	}
 
-	public void izquierda() {
-		this.setX(Math.max(this.getX()-getVelocidad(), getxMin()));
+	public void izquierda(double delta) {
+		this.setX(Math.max(this.getX()-getVelocidad()*delta, getxMin()));
 	}
 	
-	public void derecha() {
-		this.setX(Math.min(getxMax() - this.getAppearance().getWidth(), this.getX()+getVelocidad()));
+	public void derecha(double delta) {
+		this.setX(Math.min(getxMax() - this.getAppearance().getWidth(), this.getX()+getVelocidad()*delta));
 	}
 	
 	public void centrar() {

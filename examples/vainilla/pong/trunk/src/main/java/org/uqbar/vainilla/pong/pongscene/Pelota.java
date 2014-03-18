@@ -50,7 +50,7 @@ public class Pelota extends GameComponent<PongScene> {
 
 	@Override
 	public void update(DeltaState deltaState) {
-		Vector2D nuevaPosicion = this.direccion.producto(velocidad).suma(new Vector2D(this.getX(), this.getY()));
+		Vector2D nuevaPosicion = this.direccion.producto(velocidad*deltaState.getDelta()).suma(new Vector2D(this.getX(), this.getY()));
 		//TODO convertir en reglas
 		
 		for(PelotaRule rule : this.getRules()) {

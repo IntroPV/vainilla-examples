@@ -15,10 +15,10 @@ public class RaquetaPlayerStrategy implements RaquetaStrategy {
 	@Override
 	public void update(Raqueta raqueta, PongScene scene, DeltaState deltaState) {
 		if(deltaState.isKeyBeingHold(rigthKey)) {
-			raqueta.derecha();
+			raqueta.derecha(deltaState.getDelta());
 		}
 		else if(deltaState.isKeyBeingHold(leftKey)) {
-			raqueta.izquierda();
+			raqueta.izquierda(deltaState.getDelta());
 		}
 	}
 
