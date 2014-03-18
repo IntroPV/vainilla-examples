@@ -12,33 +12,33 @@ public class RaquetaComputerStrategy implements RaquetaStrategy {
 	@Override
 	public void update(Raqueta raqueta, PongScene scene, DeltaState deltaState) {
 		if (seAcerca(raqueta, scene.getPelota())) {
-			irALaCaida(raqueta, scene);
+			irALaCaida(raqueta, scene, deltaState.getDelta());
 		}
 		else {
-			irAlCentro(raqueta);
+			irAlCentro(raqueta, deltaState.getDelta());
 		}
 
 	}
 
-	private void irAlCentro(Raqueta raqueta) {
+	private void irAlCentro(Raqueta raqueta, double delta) {
 		double xMedio = (raqueta.getxMax() - raqueta.getxMin()) / 2;
 		
 		if(xMedio < raqueta.getX() + raqueta.getAppearance().getWidth()/2 ) {
-			raqueta.izquierda();
+			raqueta.izquierda(delta);
 		};
 		if(xMedio > raqueta.getX() + raqueta.getAppearance().getWidth()/2 ) {
-			raqueta.derecha();
+			raqueta.derecha(delta);
 		};
 		
 	}
 
-	private void irALaCaida(Raqueta raqueta, PongScene scene) {
+	private void irALaCaida(Raqueta raqueta, PongScene scene, double delta) {
 		double xDeCaida = calcularXCaida(raqueta, scene.getPelota());
 		if (xDeCaida < raqueta.getX() + raqueta.getAppearance().getWidth()/2) {
-			raqueta.izquierda();
+			raqueta.izquierda(delta);
 		}
 		if (xDeCaida > raqueta.getX() + raqueta.getAppearance().getWidth()/2) {
-			raqueta.derecha();
+			raqueta.derecha(delta);
 		}
 	}
 
