@@ -10,9 +10,8 @@ import org.uqbar.vainilla.pong.pongscene.PongScene;
 import org.uqbar.vainilla.pong.pongscene.Raqueta;
 import org.uqbar.vainilla.pong.pongscene.strategies.RaquetaComputerStrategy;
 import org.uqbar.vainilla.pong.pongscene.strategies.RaquetaPlayerStrategy;
-
-import ar.edu.unq.games.vainillautils.Tuning;
-import ar.edu.unq.games.vainillautils.Vector2D;
+import org.uqbar.vainilla.utils.Tuning;
+import org.uqbar.vainilla.utils.Vector2D;
 
 import com.uqbar.vainilla.DesktopGameLauncher;
 import com.uqbar.vainilla.Game;

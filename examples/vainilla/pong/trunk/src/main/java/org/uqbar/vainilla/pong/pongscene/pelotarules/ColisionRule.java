@@ -4,16 +4,15 @@ import org.uqbar.vainilla.pong.pongscene.Pelota;
 import org.uqbar.vainilla.pong.pongscene.PelotaRule;
 import org.uqbar.vainilla.pong.pongscene.PongScene;
 import org.uqbar.vainilla.pong.pongscene.Raqueta;
+import org.uqbar.vainilla.utils.Vector2D;
 
 import com.uqbar.vainilla.colissions.CollisionDetector;
-
-import ar.edu.unq.games.vainillautils.Vector2D;
 
 public class ColisionRule implements PelotaRule {
 
 	private static double anguloDelta = 0.1;
-	private static double anguloMayor = -Math.PI/2 + anguloDelta;
-	private static double anguloMenor = Math.PI/2 - anguloDelta;
+	private static double anguloMayor = -Math.PI/3 + anguloDelta;
+	private static double anguloMenor = Math.PI/3 - anguloDelta;
 	private Raqueta raqueta;
 
 	public ColisionRule(Raqueta raqueta) {

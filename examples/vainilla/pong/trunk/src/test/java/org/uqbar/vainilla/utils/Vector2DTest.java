@@ -1,7 +1,8 @@
-package ar.edu.unq.games.vainillautils;
+package org.uqbar.vainilla.utils;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.uqbar.vainilla.utils.Vector2D;
 
 
 public class Vector2DTest {

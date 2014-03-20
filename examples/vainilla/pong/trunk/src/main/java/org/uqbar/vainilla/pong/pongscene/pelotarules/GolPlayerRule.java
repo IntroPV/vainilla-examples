@@ -3,10 +3,9 @@ package org.uqbar.vainilla.pong.pongscene.pelotarules;
 import org.uqbar.vainilla.pong.pongscene.Marcador;
 import org.uqbar.vainilla.pong.pongscene.Pelota;
 import org.uqbar.vainilla.pong.pongscene.PongScene;
+import org.uqbar.vainilla.utils.Vector2D;
 
 import com.uqbar.vainilla.GameScene;
-
-import ar.edu.unq.games.vainillautils.Vector2D;
 
 public class GolPlayerRule extends GolRule {
 

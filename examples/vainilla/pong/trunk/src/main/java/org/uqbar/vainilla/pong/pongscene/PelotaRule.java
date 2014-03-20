@@ -1,6 +1,6 @@
 package org.uqbar.vainilla.pong.pongscene;
 
-import ar.edu.unq.games.vainillautils.Vector2D;
+import org.uqbar.vainilla.utils.Vector2D;
 
 public interface PelotaRule {
 
