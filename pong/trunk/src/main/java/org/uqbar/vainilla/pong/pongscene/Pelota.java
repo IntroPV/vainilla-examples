@@ -10,8 +10,7 @@ import org.uqbar.vainilla.pong.pongscene.pelotarules.ColisionRule;
 import org.uqbar.vainilla.pong.pongscene.pelotarules.DesplazamientoLibreRule;
 import org.uqbar.vainilla.pong.pongscene.pelotarules.GolComputerRule;
 import org.uqbar.vainilla.pong.pongscene.pelotarules.GolPlayerRule;
-
-import ar.edu.unq.games.vainillautils.Vector2D;
+import org.uqbar.vainilla.utils.Vector2D;
 
 import com.uqbar.vainilla.DeltaState;
 import com.uqbar.vainilla.GameComponent;

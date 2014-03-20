@@ -2,8 +2,7 @@ package org.uqbar.vainilla.pong.pongscene.pelotarules;
 
 import org.uqbar.vainilla.pong.pongscene.Pelota;
 import org.uqbar.vainilla.pong.pongscene.PongScene;
-
-import ar.edu.unq.games.vainillautils.Vector2D;
+import org.uqbar.vainilla.utils.Vector2D;
 
 public class ChoqueADerechaRule extends ChoqueLateralRule {
 
