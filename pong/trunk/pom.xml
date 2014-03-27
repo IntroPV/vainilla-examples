@@ -34,6 +34,9 @@
 						<manifest>
 							<mainClass>org.uqbar.vainilla.pong.Pong</mainClass>
 						</manifest>
+						<manifestEntries>
+							<Permissions>all-permissions</Permissions>
+						</manifestEntries>
 					</archive>
 				</configuration>
 			</plugin>
@@ -48,6 +51,9 @@
 						<manifest>
 							<mainClass>org.uqbar.vainilla.pong.Pong</mainClass>
 						</manifest>
+						<manifestEntries>
+							<Permissions>all-permissions</Permissions>
+						</manifestEntries>
 					</archive>
 				</configuration>
 				<executions>
