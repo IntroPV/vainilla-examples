@@ -249,7 +249,7 @@
 		<dependency>
 			<groupId>com.uqbar</groupId>
 			<artifactId>vainilla</artifactId>
-			<version>0.0.5-SNAPSHOT</version>
+			<version>0.0.4</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
