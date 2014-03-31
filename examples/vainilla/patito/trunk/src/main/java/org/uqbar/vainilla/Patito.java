@@ -1,13 +1,9 @@
 package org.uqbar.vainilla;
 
-import java.awt.Color;
 import java.awt.Dimension;
 
-import com.uqbar.vainilla.DeltaState;
 import com.uqbar.vainilla.Game;
-import com.uqbar.vainilla.GameComponent;
 import com.uqbar.vainilla.GameScene;
-import com.uqbar.vainilla.appearances.Circle;
 
 public class Patito extends Game {
 
@@ -15,13 +11,13 @@ public class Patito extends Game {
 
 	@Override
 	protected void initializeResources() {
-		dimension = new Dimension(600, 300);
+		dimension = new Dimension(600, 100);
 
 	}
 
 	@Override
 	protected void setUpScenes() {
-		GameScene scene = new PatitoScene(50, (dimension.getHeight()-50)/2, dimension);
+		GameScene scene = new PatitoScene("duck.png", 125, dimension, 1);
 		
 		this.setCurrentScene(scene);
 	}
