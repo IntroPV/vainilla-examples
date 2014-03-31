@@ -11,8 +11,8 @@
 		<gameClass>org.uqbar.vainilla.Patito</gameClass>
 		<!-- La dimensión con que se ve el applet. Debería conincidir con la definida 
 			en la clase del juego -->
-		<width>800</width>
-		<height>600</height>
+		<width>600</width>
+		<height>100</height>
 		<!-- modificar estos atributos para configurar el certificado autofirmado 
 			con el que se firma el applet. luego de modificar alguno de estos atributos, 
 			elimine el keystore anterior ya que el plugin que genera el certificado solo 
@@ -249,7 +249,7 @@
 		<dependency>
 			<groupId>com.uqbar</groupId>
 			<artifactId>vainilla</artifactId>
-			<version>0.0.4</version>
+			<version>0.0.5-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
