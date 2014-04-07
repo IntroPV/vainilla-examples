@@ -10,9 +10,8 @@ import com.uqbar.vainilla.colissions.CollisionDetector;
 
 public class ColisionRule implements PelotaRule {
 
-	private static double anguloDelta = 0.1;
-	private static double anguloMayor = -Math.PI/3 + anguloDelta;
-	private static double anguloMenor = Math.PI/3 - anguloDelta;
+	private static double anguloMayor = Math.PI/3;
+	private static double anguloMenor = -Math.PI/3;
 	private Raqueta raqueta;
 
 	public ColisionRule(Raqueta raqueta) {
@@ -42,14 +41,13 @@ public class ColisionRule implements PelotaRule {
 
 			double signoY = Math.signum(pelota.getDireccion().getY());
 
-			double anguloNuevo = ((anguloMenor - anguloMayor) / raqueta
+			double anguloNuevo = ((anguloMayor - anguloMenor) / raqueta
 					.getAppearance().getWidth())
 					* puntoDeColision
-					+ anguloMayor;
+					+ anguloMenor;
 			// aprovecho e invierto el signo que traia Y con el truquito de
 			// multiplicarlo por -1
-			pelota.setDireccion(new Vector2D(Math.sin(anguloNuevo), -1 * signoY
-					* Math.cos(anguloNuevo)));
+			pelota.setDireccion(new Vector2D(Math.sin(anguloNuevo), (-1) * signoY * Math.cos(anguloNuevo)));
 
 			// pelota.setX(nuevaPosicion.getX());
 			pelota.setY(signoY > 0 ? raqueta.getY()
