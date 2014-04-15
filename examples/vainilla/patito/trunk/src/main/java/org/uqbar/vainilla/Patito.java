@@ -17,7 +17,7 @@ public class Patito extends Game {
 
 	@Override
 	protected void setUpScenes() {
-		GameScene scene = new PatitoScene("duck.png", 125, dimension, 1);
+		GameScene scene = new PatitoScene("duck.png", 125, dimension, 1, "shoot.wav");
 		
 		this.setCurrentScene(scene);
 	}
