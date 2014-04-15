@@ -10,6 +10,9 @@ import com.uqbar.vainilla.appearances.Circle;
 import com.uqbar.vainilla.appearances.Rectangle;
 import com.uqbar.vainilla.appearances.Sprite;
 import com.uqbar.vainilla.events.constants.Key;
+import com.uqbar.vainilla.sound.Sound;
+import com.uqbar.vainilla.sound.SoundBuilder;
+import com.uqbar.vainilla.sound.SoundPlayer;
 
 public class PatitoScene extends GameScene {
 
@@ -21,9 +24,10 @@ public class PatitoScene extends GameScene {
 	GameComponent<PatitoScene> patito;
 	private boolean playState = true;
 	private GameComponent<GameScene> backGround;
+	private Sound shootSound;
 
 	public PatitoScene(String imagePath, int velocity, Dimension gameDimension,
-			int gap) {
+			int gap, String soundFile) {
 		super();
 		this.image = Sprite.fromImage(imagePath);
 		this.gap = gap;
@@ -61,6 +65,11 @@ public class PatitoScene extends GameScene {
 		};
 		this.addComponent(patito);
 		this.addMira();
+		this.initSound(soundFile);
+	}
+
+	protected void initSound(String soundFile) {
+		this.shootSound= new SoundBuilder().buildSound(this.getClass().getClassLoader().getResourceAsStream(soundFile));
 	}
 
 	protected boolean getPlayState() {
@@ -73,6 +82,7 @@ public class PatitoScene extends GameScene {
 
 	protected void shoot() {
 		this.buildBackground(this.win() ? Color.GREEN : Color.RED);
+		this.shootSound.play();
 		this.playState = false;
 	}
 
@@ -134,5 +144,7 @@ public class PatitoScene extends GameScene {
 	public int getPatitoWidth() {
 		return (int) this.getImage().getWidth();
 	}
+	
+	
 
 }
