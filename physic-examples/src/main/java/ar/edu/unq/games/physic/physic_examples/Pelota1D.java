@@ -15,7 +15,6 @@ public class Pelota1D<T extends GameScene> extends GameComponent<T> {
 	private double aceleracion = 0;
 	private int diametro;
 
-
 	public Pelota1D(int diameter) {
 		this.diametro = diameter;
 		this.setAppearance(new Circle(Color.BLUE, diameter));
@@ -24,11 +23,11 @@ public class Pelota1D<T extends GameScene> extends GameComponent<T> {
 
 	@Override
 	public void update(DeltaState deltaState) {
-		double posicionPropuesta = this.getX() + getDirection() * getVelocity()
-				* deltaState.getDelta();
 		
 		actualizarAceleracion(deltaState);
 		actualizarVelocidad(deltaState);
+		double posicionPropuesta = this.getX() + getDirection() * getVelocity()
+				* deltaState.getDelta();
 		actualizarPosicion(posicionPropuesta);
 	}
 
