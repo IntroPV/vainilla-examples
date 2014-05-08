@@ -112,5 +112,6 @@ public class Pelota2D<T extends GameScene> extends GameComponent<T>{
 				+ "Use las flechas DER e IZQ para cambiar la aceleración en X." 
 				+ "Use las flechas ARR y ABJ para cambiar la aceleración en Y." ;
 	}
+
 	
 }

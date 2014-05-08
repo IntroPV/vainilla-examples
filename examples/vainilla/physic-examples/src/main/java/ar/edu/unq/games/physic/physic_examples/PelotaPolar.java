@@ -29,7 +29,6 @@ public class PelotaPolar<SceneType extends GameScene> extends
 	}
 
 	private void actualizarVelocidad(DeltaState deltaState) {
-		double deltaAngle = Math.PI; // media vuelta por segundo
 		double deltaSpeed = 5;
 
 		double ro = velocidadPolar.getX();
@@ -40,37 +39,62 @@ public class PelotaPolar<SceneType extends GameScene> extends
 		} else if (deltaState.isKeyBeingHold(Key.DOWN)) {
 			ro = Math.max(0, ro - (deltaSpeed * deltaState.getDelta()));
 		} else if (deltaState.isKeyBeingHold(Key.RIGHT)) {
-			theta += deltaAngle * deltaState.getDelta();
-			// Si me pase del PI le resto una vuelta
-			theta = theta > Math.PI ? theta - 2 * Math.PI : theta;
+			theta = theta + (getVelocidadAngular() * deltaState.getDelta());
+			theta = ajustarAnguloEntrePiYMenosPi(theta);
 		} else if (deltaState.isKeyBeingHold(Key.LEFT)) {
-			theta = theta - (deltaAngle * deltaState.getDelta());
-			// Si me pase del -PI le sumo una vuelta
-			theta = theta < -Math.PI ? theta + 2 * Math.PI : theta;
+			theta = theta - (getVelocidadAngular() * deltaState.getDelta());
+			theta = ajustarAnguloEntrePiYMenosPi(theta);
 		}
-		if (deltaState.isKeyPressed(Key.ENTER)) {
+		if (deltaState.isKeyPressed(Key.SPACE)) {
 			disparar();
 		}
 		velocidadPolar = new Vector2D(ro, theta);
 	}
 
-	private void disparar() {
-		this.getScene().addComponent(
-				new Bala<GameScene>(this.getX() + diametro/2, this.getY()+ diametro/2,
-	
-			this.velocidadPolar.suma(new Vector2D(rapidezDisparo, 0)).toCartesians()));
+	//cuantos grados por segundo va a girar
+	protected double getVelocidadAngular() {
+		return Math.PI; // media vuelta por segundo
+	}
+
+	//TODO, asi como está solo sirve si me pasé una vuelta sola, por eso 
+	//solo se puede usar en el caso que el delta aplicado sobre el angulo
+	//sean menor a 2*PI.
+	//Lo que hace el metodo es quitar o sumar 2*PI para que quede en el angulo en ese radio
+	protected double ajustarAnguloEntrePiYMenosPi(double theta) {
+		theta = theta > getVelocidadAngular() ? theta - 2 * getVelocidadAngular() : theta;
+		theta = theta < -getVelocidadAngular() ? theta + 2 * getVelocidadAngular() : theta;
+		return theta;
+	}
+
+	protected void disparar() {
+		Vector2D centro = getOrigenDisparo();
+		Bala<GameScene> bala = new Bala<GameScene>(centro.getX(),
+				centro.getY(),
+				getVelocidadBala());
+		
+		this.getScene().addComponent(bala);
+	}
+
+	protected Vector2D getVelocidadBala() {
+		return this.velocidadPolar.suma(new Vector2D(rapidezDisparo, 0))
+				.toCartesians();
+	}
+
+	// Esta version la bala sale del centro del objeto
+	protected Vector2D getOrigenDisparo() {
+		return getCentro();
 	}
 
 	private void actualizarPosicion(double delta) {
 
 		Vector2D cartesianPosition = getPosition().suma(
-				getPolarVelocity().toCartesians().producto(delta));
+				getVelocidadPolar().toCartesians().producto(delta));
 
 		setXVisible(cartesianPosition.getX());
 		setYVisible(cartesianPosition.getY());
 	}
 
-	public Vector2D getPolarVelocity() {
+	public Vector2D getVelocidadPolar() {
 		return velocidadPolar;
 	}
 
@@ -115,8 +139,20 @@ public class PelotaPolar<SceneType extends GameScene> extends
 				+ "Use IZQ y DER para cambiar el ángulo\n"
 				+ "Use ARR y ABJ para cambiar la rapidez\n"
 				+ "En rojo se dibuja el vector velocidad\n"
-				+ "Con el enter se dispara, la velocidad es constante\n"
+				+ "Con el SPACE se dispara, la velocidad es constante\n"
 				+ "con respecto a la velocidad inicial de la nave";
 	}
 
+	protected int getDiametro() {
+		return diametro;
+	}
+
+	protected Vector2D getCentro() {
+		return new Vector2D(this.getX() + diametro / 2, this.getY() + diametro
+				/ 2);
+	}
+	protected double getRapidezDisparo() {
+		return rapidezDisparo;
+	}
+	
 }

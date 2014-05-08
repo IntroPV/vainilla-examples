@@ -8,6 +8,6 @@ public class Vector2Test {
 
 	@Test
 	public void coordinates() {
-		Assert.assertEquals(new Vector2D(1.5, -1),new Vector2D(1.5, -1).toPolar().toCartesians());
+		Assert.assertTrue(new Vector2D(1.5, -1).distance(new Vector2D(1.5, -1).toPolar().toCartesians()) < 0.01);
 	}
 }
