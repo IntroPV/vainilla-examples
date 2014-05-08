@@ -77,4 +77,7 @@ public class PelotaPolarCanionMovil<T extends GameScene> extends PelotaPolar<T>{
 				+ "use las teclas A y W para girar el cañon sin afectar\n la direccion"
 				+ "de la nave";
 	}
+	public double getAnguloCanion() {
+		return anguloCanion;
+	}
 }
