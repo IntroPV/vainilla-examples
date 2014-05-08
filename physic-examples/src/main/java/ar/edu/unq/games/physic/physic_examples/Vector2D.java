@@ -54,7 +54,7 @@ public class Vector2D {
 		final int prime = 31;
 		int result = 1;
 		long temp;
-		temp = Double.doubleToLongBits(module);
+		temp = 0;
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		temp = Double.doubleToLongBits(x);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -72,9 +72,6 @@ public class Vector2D {
 		if (getClass() != obj.getClass())
 			return false;
 		Vector2D other = (Vector2D) obj;
-		if (Double.doubleToLongBits(module) != Double
-				.doubleToLongBits(other.module))
-			return false;
 		if (Double.doubleToLongBits(x) != Double.doubleToLongBits(other.x))
 			return false;
 		if (Double.doubleToLongBits(y) != Double.doubleToLongBits(other.y))
@@ -89,5 +86,14 @@ public class Vector2D {
 	public Vector2D toCartesians() {
 		return new Vector2D(x * Math.cos(y), x * Math.sin(y));
 	}
+
+	public double distance(Vector2D other) {
+		return other.resta(this).getModule();
+	}
+
+	private Vector2D resta(Vector2D vector2d) {
+		return new Vector2D(this.x - vector2d.x, this.y - vector2d.y);
+	}
+	
 
 }
