@@ -27,7 +27,9 @@ public class Physic extends Game {
 		addLevel(new PelotaGravity<PhysicScene>(50));
 		addLevel(new PelotaPolar<PhysicScene>(50));
 		addLevel(new PelotaPolarCanionMovil<PhysicScene>(50));
+		addLevel(new PelotaAcelerablePolar<PhysicScene>(50));
 
+		
 		this.setLevel(1);
 	}
 
