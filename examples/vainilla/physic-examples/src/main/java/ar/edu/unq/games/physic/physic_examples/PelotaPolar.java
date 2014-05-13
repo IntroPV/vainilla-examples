@@ -28,7 +28,7 @@ public class PelotaPolar<SceneType extends GameScene> extends
 		actualizarPosicion(deltaState.getDelta());
 	}
 
-	private void actualizarVelocidad(DeltaState deltaState) {
+	public void actualizarVelocidad(DeltaState deltaState) {
 		double deltaSpeed = 5;
 
 		double ro = velocidadPolar.getX();
@@ -48,11 +48,11 @@ public class PelotaPolar<SceneType extends GameScene> extends
 		if (deltaState.isKeyPressed(Key.SPACE)) {
 			disparar();
 		}
-		velocidadPolar = new Vector2D(ro, theta);
+		this.setVelocidadPolar( new Vector2D(ro, theta) );
 	}
 
 	//cuantos grados por segundo va a girar
-	protected double getVelocidadAngular() {
+	public double getVelocidadAngular() {
 		return Math.PI; // media vuelta por segundo
 	}
 
@@ -85,7 +85,7 @@ public class PelotaPolar<SceneType extends GameScene> extends
 		return getCentro();
 	}
 
-	private void actualizarPosicion(double delta) {
+	public void actualizarPosicion(double delta) {
 
 		Vector2D cartesianPosition = getPosition().suma(
 				getVelocidadPolar().toCartesians().producto(delta));
@@ -153,6 +153,10 @@ public class PelotaPolar<SceneType extends GameScene> extends
 	}
 	protected double getRapidezDisparo() {
 		return rapidezDisparo;
+	}
+	
+	protected void setVelocidadPolar(Vector2D vector2d) {
+		this.velocidadPolar = vector2d;
 	}
 	
 }

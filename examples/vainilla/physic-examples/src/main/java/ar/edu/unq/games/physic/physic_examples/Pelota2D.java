@@ -32,7 +32,7 @@ public class Pelota2D<T extends GameScene> extends GameComponent<T>{
 	}
 
 
-	private void actualizarAceleracion(DeltaState deltaState) {
+	protected void actualizarAceleracion(DeltaState deltaState) {
 		double deltaAcceleration = 0.3;
 		double deltaX = 0;
 		double deltaY = 0;
@@ -55,13 +55,13 @@ public class Pelota2D<T extends GameScene> extends GameComponent<T>{
 	}
 
 
-	private void actualizarVelocidad(DeltaState deltaState) {
+	protected void actualizarVelocidad(DeltaState deltaState) {
 		Vector2D deltaVelocidad = getAceleracion().producto(deltaState.getDelta());
 		setVelocidad(getVelocidad().suma(deltaVelocidad));
 	}
 
 
-	private void actualizarPosicion(Vector2D posicionPropuesta) {
+	protected void actualizarPosicion(Vector2D posicionPropuesta) {
 		
 		double x = posicionPropuesta.getX();
 		double y = posicionPropuesta.getY();

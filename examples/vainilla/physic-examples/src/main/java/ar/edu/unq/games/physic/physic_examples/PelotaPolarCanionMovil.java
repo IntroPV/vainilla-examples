@@ -35,6 +35,7 @@ public class PelotaPolarCanionMovil<T extends GameScene> extends PelotaPolar<T>{
 			anguloCanion = this.ajustarAnguloEntrePiYMenosPi(theta);			
 		}
 	}
+
 	
 	@Override
 	public void render(Graphics2D graphics) {
@@ -45,14 +46,10 @@ public class PelotaPolarCanionMovil<T extends GameScene> extends PelotaPolar<T>{
 	    graphics.setStroke(stroke2);
 		Vector2D centro = this.getCentro();
 		Vector2D puntaDelCanion = puntaCanion(); 
-		graphics.drawLine((int)centro.getX(), (int)centro.getY(), (int)puntaDelCanion.getX(), (int)puntaDelCanion.getY());
-		
-		
-		
+		graphics.drawLine((int)centro.getX(), (int)centro.getY(), (int)puntaDelCanion.getX(), (int)puntaDelCanion.getY());	
 		graphics.setColor(c);
 		graphics.setStroke(stroke);
 		super.render(graphics);
-		
 	}
 
 	private Vector2D puntaCanion() {
@@ -80,4 +77,6 @@ public class PelotaPolarCanionMovil<T extends GameScene> extends PelotaPolar<T>{
 	public double getAnguloCanion() {
 		return anguloCanion;
 	}
+	
+	
 }
